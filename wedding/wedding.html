@@ -1,292 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>웨딩 초대 페이지 (모바일 우선)</title>
-    <style>
-        body {
-            background: #f9f7f5; /* 아주 연한 베이지 느낌 배경 */
-            color: #333;
-        }
-        .frame {
-            background: white;
-            border: 1px solid #ece5df;
-            padding: 28px 22px;
-            margin-bottom: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .frame.rise {
-            transform: translateY(20px);
-            opacity: 0;
-        }
-        .frame.rise.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .hero .overlay-text {
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        .wedding-icon {
-            width: 60px;
-            height: 60px;
-            margin: 16px auto;
-            stroke: #b98f8a; /* 포인트 컬러 계열 */
-        }
-        .date-big {
-            font-size: 22px;
-            color: #5a4637;
-        }
-        .countdown {
-            font-size: 20px;
-            color: #856e64;
-        }
-        .btn {
-            background: #b98f8a;
-            color: #fff;
-        }
-        .gallery img {
-            border-radius: 8px;
-            border: 1px solid #f0ebe7;
-        }
-        /* 장식 선 */
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: #e5dcd5;
-            margin: 18px auto;
-        }
-    </style>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결혼식 초대장</title>
+    <link rel="stylesheet" href="wedding.css" />
 </head>
 <body>
-<div id="app">
-    <main>
-        <!-- Frame 1: Hero -->
-        <section class="frame" id="frame1">
-            <div class="hero" id="hero" style="background-image:url('https://picsum.photos/1000/800?random=1')">
-                <div class="overlay-text">여기에 첫 프레임 문구를 적어주세요 — 예: 함께 해주셔서 감사합니다</div>
-            </div>
-            <div class="hint">아래로 스크롤하세요</div>
-        </section>
+<div class="container">
 
-
-        <!-- 예: Frame 2 쪽에 장식 라인 삽입 -->
-        <section class="frame rise" id="frame2">
-            <div class="divider"></div>
-            <svg class="wedding-icon pulse" viewBox="0 0 64 64" aria-hidden>
-                <path class="heart" d="M32 48s-16-9.6-22.4-15.2C3.2 26.4 8 16 18 14c6-1.2 10 2 14 6 4-4 8-7.2 14-6 10 2 14.8 12.4 8.4 18.8C48 38.4 32 48 32 48z"/>
-            </svg>
-            <div style="max-width: 700px;">
-                <p style="font-size:20px; font-weight:600; margin-bottom:10px;">
-                    저희 결혼식에 기쁜 마음으로 초대합니다
-                </p>
-                <p style="color:#7a6c61;">
-                    서로의 마음을 담아 준비한 자리, 함께 해주세요.
-                </p>
-            </div>
-            <div class="divider" style="margin-top:16px;"></div>
-        </section>
-
-        <!-- Frame 3: Date + countdown -->
-        <section class="frame rise" id="frame3">
-            <div class="date-block">
-                <div class="calendar">
-                    <div style="text-align:left">
-                        <div style="font-size:12px;color:var(--muted)">웨딩 날짜</div>
-                        <div class="date-big">2026.01.31 (토)</div>
-                    </div>
-                </div>
-
-                <div style="margin-top:8px">남은 시간</div>
-                <div class="countdown" id="countdown">-- 일 -- : -- : --</div>
-            </div>
-        </section>
-
-        <!-- Frame 4: Names and contact -->
-        <section class="frame rise" id="frame4">
-            <div class="names">
-                <div class="row">
-                    <div class="chip">
-                        <div style="font-size:13px;color:var(--muted)">신랑</div>
-                        <div style="font-size:16px;font-weight:700">홍길동</div>
-                    </div>
-                    <div class="chip">
-                        <div style="font-size:13px;color:var(--muted)">신부</div>
-                        <div style="font-size:16px;font-weight:700">김영희</div>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-top:10px">
-                    <a class="btn" href="tel:+821012345678">연락하기</a>
-                    <a class="btn" href="mailto:example@email.com">메일 보내기</a>
-                </div>
-
-                <div style="margin-top:12px;color:var(--muted);font-size:13px">양가 부모님</div>
-                <div class="row" style="flex-wrap:wrap;margin-top:8px">
-                    <div class="chip">신랑측: 홍철수 · 박순자</div>
-                    <div class="chip">신부측: 이민수 · 최영자</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Frame 5: Gallery (3 x 10 fixed) -->
-        <section class="frame rise" id="frame5">
-            <h3 style="margin-bottom:10px">갤러리</h3>
-            <div class="gallery-wrapper">
-                <div class="gallery" id="gallery">
-                    <!-- 30 images placeholders -->
-                    <!-- Replace src with real images or server URLs -->
-                </div>
-            </div>
-            <div style="margin-top:10px;color:var(--muted);font-size:13px">사진을 눌러 확대하세요</div>
-        </section>
-
-        <!-- Frame 6: Maps -->
-        <section class="frame rise" id="frame6">
-            <h4>오시는 길</h4>
-            <p style="color:var(--muted);margin-bottom:8px">장소: 신도림 더링크호텔</p>
-            <div class="maps">
-                <a class="map-btn" id="naverMap" target="_blank" rel="noopener">네이버 지도</a>
-                <a class="map-btn" id="kakaoMap" target="_blank" rel="noopener">카카오맵</a>
-                <a class="map-btn" id="tmap" target="_blank" rel="noopener">Tmap</a>
-            </div>
-        </section>
-
-        <!-- Frame 7: Gift / Account -->
-        <section class="frame rise" id="frame7">
-            <h4>마음 전하실 곳</h4>
-            <p style="color:var(--muted);margin-bottom:8px">원하시는 쪽을 선택하면 계좌번호가 표시됩니다</p>
-            <div class="account">
-                <div class="acc-item">
-                    <div style="flex:1">
-                        <div style="font-size:13px;color:var(--muted)">신랑 측</div>
-                        <div>홍길동</div>
-                    </div>
-                    <button class="btn" data-target="groom">계좌 보기</button>
-                </div>
-
-                <div class="acc-item">
-                    <div style="flex:1">
-                        <div style="font-size:13px;color:var(--muted)">신부 측</div>
-                        <div>김영희</div>
-                    </div>
-                    <button class="btn" data-target="bride">계좌 보기</button>
-                </div>
-
-                <div id="accountArea" style="margin-top:8px;color:var(--muted)"></div>
-            </div>
-        </section>
-
-        <footer>이 페이지는 모바일 우선 레이아웃입니다. 이미지를 교체하시려면 HTML 내 이미지 URL을 바꿔주세요.</footer>
-    </main>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <div class="lb-controls">
-            <button class="lb-btn" id="lbClose">닫기</button>
-            <div style="display:flex;gap:8px">
-                <button class="lb-btn" id="lbPrev">◀</button>
-                <button class="lb-btn" id="lbNext">▶</button>
+    <!-- 첫 번째 프레임 -->
+    <section class="frame frame1">
+        <div class="image-wrapper">
+            <img src="img/img1.jpg" alt="웨딩 메인 이미지" class="main-photo" />
+            <div class="overlay-text">
+                <h4>2026년 1월 31일 토요일 오후 6시</h4>
+                <h4>더링크호텔 5층 가든홀</h4>
             </div>
         </div>
-        <img id="lbImage" src="" alt="">
-    </div>
+    </section>
+
+    <!-- Frame 2 -->
+    <section class="frame frame2">
+        <div class="content-wrapper">
+            <!-- SVG 아이콘 삽입 -->
+            <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 52" width="160" height="52" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="__lottie_element_79"><rect width="160" height="52" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_79)"><g transform="matrix(1.3799999952316284,0,0,1.3799999952316284,79.46427917480469,25.537220001220703)" opacity="1" style="display: block;"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(123,123,123)" stroke-opacity="1" stroke-width="0.8" d=" M-45.65599822998047,-3.4110000133514404 C-35.71200180053711,-3.99399995803833 -25.72100067138672,-3.7780001163482666 -15.812000274658203,-2.7660000324249268 C-12.005999565124512,-2.377000093460083 -7.705999851226807,-2.0139999389648438 -4.808000087738037,-4.51200008392334 C-8.284000396728516,-6.804999828338623 -16.21299934387207,-8.201000213623047 -16.77899932861328,-6.281000137329102 C-17.344999313354492,-4.361000061035156 -8.892999649047852,-3.7179999351501465 -5.307000160217285,-5.535999774932861 C-4.619999885559082,-5.883999824523926 -1.4179999828338623,-6.495999813079834 -3.382999897003174,-8.788000106811523 C-5.9710001945495605,-11.807999610900879 -10.187999725341797,-13.831999778747559 -14.274999618530273,-14.187999725341797 C-14.928999900817871,-14.244999885559082 -15.607999801635742,-14.276000022888184 -16.22100067138672,-14.041999816894531 C-18.030000686645508,-13.35200023651123 -20.149999618530273,-8.532999992370605 -19.79800033569336,-7.697999954223633 C-19.445999145507812,-6.86299991607666 -14.144000053405762,-10.694999694824219 -4.513000011444092,-5.848999977111816 C-3.0880000591278076,-5.131999969482422 -1.7029999494552612,-4.229000091552734 -0.125,-4.000999927520752 C1.4529999494552612,-3.7730000019073486 3.3489999771118164,-4.574999809265137 3.625999927520752,-6.145999908447266 C3.7939999103546143,-7.098999977111816 3.6480000019073486,-8.093000411987305 3.052999973297119,-8.855999946594238 C2.5899999141693115,-9.449000358581543 1.6629999876022339,-9.96500015258789 0.9169999957084656,-10.057000160217285 C0.17100000381469727,-10.14900016784668 -2.1730000972747803,-8.998000144958496 -1.1950000524520874,-6.708000183105469 C-0.21699999272823334,-4.418000221252441 2.946000099182129,-3.875999927520752 5.267000198364258,2.0420000553131104 C6.572000026702881,5.36899995803833 6.8460001945495605,8.647000312805176 7.331999778747559,12.187000274658203 C7.386000156402588,12.57800006866455 7.456999778747559,12.994999885559082 7.72599983215332,13.284000396728516 C8.281999588012695,13.881999969482422 9.321000099182129,13.567999839782715 9.88599967956543,12.979000091552734 C10.451000213623047,12.390000343322754 10.774999618530273,11.595000267028809 11.380000114440918,11.04699993133545 C11.984999656677246,10.49899959564209 13.098999977111816,10.343999862670898 13.517999649047852,11.043999671936035 C13.645000457763672,7.150000095367432 12.392000198364258,3.8499999046325684 11.395999908447266,1.565000057220459 C10.656000137329102,-0.13300000131130219 9.652000427246094,-1.6230000257492065 7.400000095367432,-3.38700008392334 C6.103000164031982,-4.4029998779296875 2.7669999599456787,-7.191999912261963 -0.3070000112056732,-5.859000205993652"></path></g><g transform="matrix(1.3799999952316284,0,0,1.3799999952316284,79.46427917480469,25.537220001220703)" opacity="1" style="display: block;"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(123,123,123)" stroke-opacity="1" stroke-width="0.8" d=" M45.65599822998047,-6.26800012588501 C39.79899978637695,-6.948999881744385 30.93899917602539,-5.691999912261963 25.898000717163086,-4.017000198364258 C20.857999801635742,-2.3420000076293945 15.326000213623047,-1.1390000581741333 10.293000221252441,-2.8369998931884766 C9.369999885559082,-3.1480000019073486 8.295999526977539,-3.9590001106262207 8.670000076293945,-4.857999801635742 C8.894000053405762,-5.396999835968018 13.104000091552734,-4.9079999923706055 13.687999725341797,-4.914000034332275 C15.277999877929688,-4.932000160217285 21.545000076293945,-3.7709999084472656 21.18199920654297,-7.039999961853027 C20.937999725341797,-9.236000061035156 15.414999961853027,-7.947999954223633 10.647000312805176,-7.017000198364258 C9.157999992370605,-6.72599983215332 7.586999893188477,-6.3480000495910645 7.242000102996826,-5.40500020980835 C6.927000045776367,-4.544000148773193 9.826000213623047,-4.136000156402588 10.73799991607666,-4.043000221252441 C13.57800006866455,-3.755000114440918 19.64299964904785,-2.9179999828338623 21.72599983215332,-4.869999885559082 C23.80900001525879,-6.822000026702881 22.81599998474121,-11.394000053405762 20.54599952697754,-13.12399959564209 C18.16200065612793,-14.940999984741211 12.947999954223633,-13.354999542236328 10.329999923706055,-11.897000312805176 C7.919000148773193,-10.553999900817871 5.494999885559082,-9.152999877929688 3.552000045776367,-7.193999767303467 C-1.1519999504089355,-2.4509999752044678 -2.680000066757202,-1.9429999589920044 -4.445000171661377,3.6110000610351562 C-6.176000118255615,9.055999755859375 -4.335999965667725,11.713000297546387 -5.9029998779296875,12.394000053405762 C-6.607999801635742,12.699999809265137 -7.525000095367432,10.765000343322754 -8.083000183105469,10.236000061035156 C-8.95199966430664,9.413000106811523 -10.395000457763672,9.276000022888184 -11.402999877929688,9.92199993133545 C-12.41100025177002,10.567999839782715 -12.890000343322754,11.934000015258789 -12.505999565124512,13.067999839782715 C-11.569000244140625,13.57800006866455 -10.779999732971191,12.182999610900879 -10.609999656677246,11.130000114440918 C-10.076000213623047,7.822000026702881 -9.22599983215332,4.495999813079834 -7.877999782562256,1.4279999732971191 C-6.53000020980835,-1.6399999856948853 -3.38100004196167,-4.526000022888184 -0.3070000112056732,-5.859000205993652 C2.7669999599456787,-7.191999912261963 6.103000164031982,-4.4029998779296875 7.400000095367432,-3.38700008392334"></path></g></g></svg>
+            </div>
+
+            <!-- 본문 문구 -->
+            <div class="text-wrapper">
+                <p>그러므로 사람이 부모를 떠나</p>
+                <p>그의 아내와 합하여 둘이 한 몸을 이룰지니라</p>
+                <p>창세기 2:24</p>
+                <br />
+                <p>하나님의 은혜로 두 사람이 하나 되어</p>
+                <p>새로운 가정을 이루려 합니다.</p>
+                <p>믿음으로 세워갈 가정에</p>
+                <p>축복의 걸음 함께해 주세요.</p>
+            </div>
+
+            <!-- 신랑 신부 이름 -->
+            <div class="names">
+                <span>신랑 장동규 · 신부 장소현</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- frame 3 -->
+    <!-- section 3 -->
+    <section class="frame frame3">
+        <h1>WEDDING DAY</h1>
+        <h2 class="calendar-title">2026년 1월 31일</h2>
+        <div class="calendar">
+            <div class="weekdays">
+                <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+            </div>
+            <div class="days" id="days"></div>
+        </div>
+
+        <!-- 남은 날짜 표시 -->
+        <div class="countdown">
+            <span>동규 ❤ 소현 결혼식이</span>
+            <span id="daysLeft">--</span>
+            <span>일 남았습니다</span>
+        </div>
+    </section>
+
+    <!-- Frame 4 -->
+    <section class="frame frame4">
+        <div class="family-wrapper">
+            <h3 class="family-title">가족 소개</h3>
+            <div class="family-cards">
+                <!-- 신랑 -->
+                <div class="family-card">
+                    <div class="role-badge groom">신랑</div>
+                    <div class="child-name">동규</div>
+                    <div class="parent-line">
+                        <span class="parent-label">아버지</span>
+                        <span class="parent-name">장동규</span>
+                    </div>
+                    <div class="parent-line">
+                        <span class="parent-label">어머니</span>
+                        <span class="parent-name">손경숙</span>
+                    </div>
+                    <div class="relation">아들</div>
+                </div>
+                <!-- 신부 -->
+                <div class="family-card">
+                    <div class="role-badge bride">신부</div>
+                    <div class="child-name">소현</div>
+                    <div class="parent-line">
+                        <span class="parent-label">아버지</span>
+                        <span class="parent-name">장대식</span>
+                    </div>
+                    <div class="parent-line">
+                        <span class="parent-label">어머니</span>
+                        <span class="parent-name">이혜경</span>
+                    </div>
+                    <div class="relation">딸</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frame 5 - 갤러리 -->
+    <section class="frame frame5">
+        <div class="gallery-container">
+            <p class="gallery-small-title">GALLERY</p>
+            <h3 class="gallery-title">갤러리</h3>
+            <p class="gallery-subtitle">사진을 클릭하면 전체 크기로 볼 수 있습니다</p>
+
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- JS에서 30개 이미지 자동 생성 -->
+            </div>
+        </div>
+
+        <!-- 모달 -->
+        <div id="modal" class="modal">
+            <span id="prev" class="prev">&#10094;</span>
+            <img id="modal-img" src="" alt="Gallery Image">
+            <span id="next" class="next">&#10095;</span>
+        </div>
+    </section>
+
+    <!-- Frame 5 - location -->
+    <section class="frame frame6">
+        <div class="content-wrapper">
+            <div class="section-title">
+                <p class="small-title">LOCATION</p>
+                <h2>오시는 길</h2>
+            </div>
+
+            <!-- Map Image -->
+            <div class="map-wrapper">
+                <img src="img/map.jpg" alt="약도" class="map-img">
+            </div>
+
+            <!-- 교통 정보 -->
+            <div class="transport-info">
+                <!-- 자차 -->
+                <div class="transport-section">
+                    <h3>자가</h3>
+                    <p>네비게이션 '더링크호텔 웨딩' 검색</p>
+                    <p>1시간 30분 무료 주차</p>
+                </div>
+
+                <!-- 셔틀버스 -->
+                <div class="transport-section">
+                    <h3>셔틀버스</h3>
+                    <p>신도림역 1번 출구</p>
+                </div>
+
+                <!-- 지하철 -->
+                <div class="transport-section">
+                    <h3>지하철</h3>
+                    <p>1·2호선 신도림역 1번 출구 도보 10분</p>
+                    <p>1호선 구로역 3번 출구 도보 5분</p>
+                </div>
+
+                <!-- 버스 -->
+                <div class="transport-section">
+                    <h3>버스</h3>
+                    <p class="stop-name">신도림동(구로역)</p>
+                    <div class="bus-list">
+                        <p>경기일반 · 10, 11-1, 11-2, 83, 88, 530</p>
+                        <p>간선 · 160, 503, 600, 660, 662</p>
+                        <p>지선 · 6515, 6516, 6637, 6640A, 6640B, 6713, 6411, 6511</p>
+                        <p>직행 · 301, 320, 5200</p>
+                        <p>마을 · 양천04</p>
+                    </div>
+                    <p class="stop-name">신도림중학교 정류장</p>
+                    <div class="bus-list">
+                        <p>5615, 5714, 6512, 6411, 6511</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 </div>
 
-<script>
-    // ====== Small utility: show "rise" frames after small delay to create entrance animation ======
-    document.addEventListener('DOMContentLoaded',()=>{
-        document.querySelectorAll('.frame.rise').forEach((el,i)=>{
-            setTimeout(()=>el.classList.add('show'), 220 + i*120);
-        });
-
-        // Populate gallery with 30 placeholders (replace URLs as needed)
-        const gallery = document.getElementById('gallery');
-        for(let i=1;i<=30;i++){
-            const btn = document.createElement('button');
-            const img = document.createElement('img');
-            img.src = `https://picsum.photos/seed/wedding${i}/600/600`;
-            img.alt = `photo ${i}`;
-            btn.appendChild(img);
-            btn.dataset.index = i-1;
-            gallery.appendChild(btn);
-        }
-
-        // Lightbox behavior with next/prev and touch support
-        const lb = document.getElementById('lightbox');
-        const lbImg = document.getElementById('lbImage');
-        const btns = gallery.querySelectorAll('button');
-        let currentIndex = 0;
-        const imgs = Array.from(gallery.querySelectorAll('img')).map(i=>i.src);
-
-        function openAt(idx){
-            currentIndex = idx;
-            lbImg.src = imgs[idx];
-            lb.classList.add('show');
-        }
-        function closeLB(){ lb.classList.remove('show'); }
-        function next(){ currentIndex = (currentIndex+1)%imgs.length; lbImg.src = imgs[currentIndex]; }
-        function prev(){ currentIndex = (currentIndex-1+imgs.length)%imgs.length; lbImg.src = imgs[currentIndex]; }
-
-        btns.forEach(b=>b.addEventListener('click',()=>openAt(Number(b.dataset.index))));
-        document.getElementById('lbClose').addEventListener('click',closeLB);
-        document.getElementById('lbNext').addEventListener('click',next);
-        document.getElementById('lbPrev').addEventListener('click',prev);
-        lb.addEventListener('click',(e)=>{ if(e.target===lb) closeLB(); });
-
-        // touch swipe for next/prev
-        let startX=null;
-        lbImg.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX);
-        lbImg.addEventListener('touchend', (e)=>{
-            if(startX==null) return; const dx = e.changedTouches[0].clientX - startX; startX = null;
-            if(Math.abs(dx) > 40){ if(dx<0) next(); else prev(); }
-        });
-
-        // Countdown to 2026-01-31 14:00 (adjust time if needed) - assume local (Asia/Seoul)
-        const target = new Date('2026-01-31T00:00:00+09:00');
-        const cdEl = document.getElementById('countdown');
-        function updateCountdown(){
-            const now = new Date();
-            let diff = Math.floor((target - now) / 1000);
-            if(diff <= 0){ cdEl.textContent = '행사일입니다'; return; }
-            const days = Math.floor(diff / 86400); diff %= 86400;
-            const hours = Math.floor(diff / 3600); diff %= 3600;
-            const mins = Math.floor(diff / 60); const secs = diff % 60;
-            cdEl.textContent = `${days}일 ${String(hours).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-        }
-        updateCountdown(); setInterval(updateCountdown,1000);
-
-        // Map links (search URLs) - open in new tab
-        const place = encodeURIComponent('신도림 더링크호텔');
-        document.getElementById('naverMap').href = `https://map.naver.com/v5/search/${place}`;
-        document.getElementById('kakaoMap').href = `https://map.kakao.com/?q=${place}`;
-        document.getElementById('tmap').href = `https://www.tmap.co.kr/search?query=${place}`;
-
-        // Account toggle (replace the account strings below with real ones)
-        const accounts = {
-            groom: '국민 123456-01-234567 홍길동',
-            bride: '신한 987-65-4321-00 김영희'
-        };
-        document.querySelectorAll('.account .btn').forEach(b=>{
-            b.addEventListener('click',()=>{
-                const target = b.dataset.target;
-                document.getElementById('accountArea').textContent = accounts[target] || '계좌 정보가 없습니다.';
-            });
-        });
-
-        // Accessibility: keyboard navigation for lightbox
-        document.addEventListener('keydown',(e)=>{
-            if(!lb.classList.contains('show')) return;
-            if(e.key === 'ArrowRight') next();
-            if(e.key === 'ArrowLeft') prev();
-            if(e.key === 'Escape') closeLB();
-        });
-
-    });
-</script>
+<script src="wedding.js"></script>
 </body>
 </html>

@@ -1,73 +1,573 @@
-<style>
+/* 전체 레이아웃 */
 body {
-    background: #f9f7f5; /* 아주 연한 베이지 느낌 배경 */
-    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: 'GowunDodum', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(234, 195, 194);
 }
+
+@media (max-width: 768px) {
+    body {
+        background-color: white;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+/* 프레임 공통 */
 .frame {
-    background: white;
-    border: 1px solid #ece5df;
-    padding: 28px 22px;
-    margin-bottom: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width: 100%;
+    position: relative;
+    text-align: center;
 }
-.frame.rise {
-    transform: translateY(20px);
-    opacity: 0;
+
+/* 첫 번째 프레임 */
+.frame1 {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
-.frame.rise.show {
-    transform: translateY(0);
-    opacity: 1;
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
-.hero .overlay-text {
-    font-size: 20px;
-    font-weight: 500;
+
+.main-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 오버레이 텍스트 */
+.overlay-text {
+    position: absolute;
+    bottom: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+    color: #fafafa;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    /* 자간 + 행간 조절 */
+    letter-spacing: 0.4px;
     line-height: 1.4;
 }
+
+.overlay-text h4 {
+    margin: 0.3rem 0;
+    /* 글꼴 굵기 조정 */
+    font-weight: 500;
+    font-size: 1.15rem;
+    opacity: 1;
+    filter: blur(0px);
+    transform: none;
+}
+
+/* 💻 PC 전용 - 프레임 둥근 모서리 & 그림자 */
+@media (min-width: 769px) {
+    .container {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+    }
+
+    .frame {
+        border-top-left-radius: 20px ;
+        border-top-right-radius: 20px ;
+        overflow: hidden;
+    }
+}
+
+/* ===== Frame 2 ===== */
+.frame2 {
+    background-color: #fff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 1.4s ease-out both;
+}
+
+/* 아이콘 */
+.icon-wrapper {
+    margin-bottom: 2rem;
+    width: 160px;
+    height: auto;
+}
+
 .wedding-icon {
-    width: 60px;
-    height: 60px;
-    margin: 16px auto;
-    stroke: #b98f8a; /* 포인트 컬러 계열 */
+    width: 100%;
+    height: auto;
+    animation: floatUp 2s ease-in-out infinite alternate;
 }
-.date-big {
-    font-size: 22px;
-    color: #5a4637;
+
+/* 텍스트 */
+.text-wrapper {
+    line-height: 1.9;
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 2rem;
 }
-.countdown {
-    font-size: 20px;
-    color: #856e64;
+
+.text-wrapper p {
+    margin: 0.3rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
 }
-.btn {
-    background: #b98f8a;
+
+.text-wrapper p:nth-child(1) { animation-delay: 0.1s; }
+.text-wrapper p:nth-child(2) { animation-delay: 0.2s; }
+.text-wrapper p:nth-child(3) { animation-delay: 0.3s; }
+.text-wrapper p:nth-child(5) { animation-delay: 0.5s; }
+.text-wrapper p:nth-child(6) { animation-delay: 0.6s; }
+.text-wrapper p:nth-child(7) { animation-delay: 0.7s; }
+
+/* 신랑신부 이름 */
+.names {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out 1.2s forwards;
+}
+
+/* 애니메이션 */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-8px); }
+}
+
+/* section 3 */
+.frame3 {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: rgb(248, 248, 248);
+    font-family: Sometimestimes,serif;
+}
+
+.calendar-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.calendar {
+    display: inline-block;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.weekdays div {
+    font-weight: 500;
+    color: #555;
+}
+
+.days div {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* 동그라미 표시 */
+    font-weight: 500;
+}
+
+/* 결혼식 날짜 강조 */
+.days div.event {
+    background-color: #cc7a78;
     color: #fff;
 }
-.gallery img {
-    border-radius: 8px;
-    border: 1px solid #f0ebe7;
+
+/* 1월 1일 및 모든 일요일 */
+.days div.sunday {
+    color: red;
 }
-/* 장식 선 */
-.divider {
+
+/* 모든 토요일 */
+.days div.saturday {
+    color: blue;
+}
+
+
+.days div.event {
+    background-color: #cc7a78;
+    color: #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.countdown {
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.countdown div {
+    background: #fff;
+    padding: 12px 8px;
+    border-radius: 12px;
+    width: 22%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.countdown .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.countdown .label {
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 3px;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.footer-text span.highlight {
+    color: #cc7a78;
+    font-weight: bold;
+}
+.countdown {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+#daysLeft {
+    color:#cc7a78;
+}
+
+/* 4 */
+.frame4 {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, #fdfbf9 0%, #f9f5f3 100%);
+    text-align: center;
+}
+
+.family-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.family-title {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    color: #3d2e28;
+    font-weight: 400;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.family-title::after {
+    content: '';
+    display: block;
     width: 60px;
     height: 1px;
-    background: #e5dcd5;
-    margin: 18px auto;
+    background: linear-gradient(90deg, transparent, #c4a696, transparent);
+    margin: 1rem auto 0;
 }
-</style>
 
-<!-- 예: Frame 2 쪽에 장식 라인 삽입 -->
-<section class="frame rise" id="frame2">
-                                       <div class="divider"></div>
-                                                              <svg class="wedding-icon pulse" viewBox="0 0 64 64" aria-hidden>
-                                                                                                                  <path class="heart" d="M32 48s-16-9.6-22.4-15.2C3.2 26.4 8 16 18 14c6-1.2 10 2 14 6 4-4 8-7.2 14-6 10 2 14.8 12.4 8.4 18.8C48 38.4 32 48 32 48z"/>
-                                                                                                                                                                                                                                                                   </svg>
-                                                                                                                                                                                                                                                                     <div style="max-width: 700px;">
-                                                                                                                                                                                                                                                                                                   <p style="font-size:20px; font-weight:600; margin-bottom:10px;">
-                                                                                                                                                                                                                                                                                                                                                                  저희 결혼식에 기쁜 마음으로 초대합니다
-    </p>
-                                                                                                                                                                                                                                                                                                                                                                                        <p style="color:#7a6c61;">
-                                                                                                                                                                                                                                                                                                                                                                                                                 서로의 마음을 담아 준비한 자리, 함께 해주세요.
-</p>
-  </div>
-    <div class="divider" style="margin-top:16px;"></div>
-                                                    </section>
+.family-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.family-card {
+    background: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #e8ddd7;
+    box-shadow: 0 8px 24px rgba(90, 62, 54, 0.06);
+    font-family: 'Nanum Myeongjo', serif;
+    color: #3d2e28;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.family-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(90, 62, 54, 0.1);
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.role-badge.groom {
+    background: linear-gradient(135deg, #6b8e9f 0%, #4a6b7a 100%);
+    color: #ffffff;
+}
+
+.role-badge.bride {
+    background: linear-gradient(135deg, #d4a5a5 0%, #b88a8a 100%);
+    color: #ffffff;
+}
+
+.child-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+    color: #2a1f1a;
+}
+
+.parent-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.parent-label {
+    color: #8b7268;
+    font-size: 0.9rem;
+    min-width: 50px;
+    text-align: right;
+}
+
+.parent-name {
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #3d2e28;
+}
+
+.relation {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #9b8078;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* 5 */
+.frame5 {
+    padding: 2rem 1rem;
+    background-color: #fdf5f0;
+    text-align: center;
+}
+
+.gallery-small-title {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 0.2rem;
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.6);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/** 6 **/
+/* Frame 6 */
+.frame6 {
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f6 100%);
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+
+.frame6 .section-title {
+    margin-bottom: 3rem;
+}
+
+.frame6 .small-title {
+    font-size: 0.75rem;
+    color: #a89080;
+    letter-spacing: 3px;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.frame6 h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #3d2e28;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.frame6 .map-wrapper {
+    margin: 2.5rem 0;
+}
+
+.frame6 .map-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.frame6 .transport-info {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.frame6 .transport-section {
+    margin-bottom: 2rem;
+    padding: 1.0rem 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e8ddd7;
+    box-shadow: 0 4px 12px rgba(90, 62, 54, 0.05);
+}
+
+.frame6 .transport-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3d2e28;
+    letter-spacing: 2px;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #f0e8e3;
+}
+
+.frame6 .transport-section p {
+    margin: 0.6rem 0;
+    font-size: 0.9rem;
+    color: #5a4a42;
+    line-height: 1.7;
+}
+
+.frame6 .stop-name {
+    color: #3d2e28;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.frame6 .bus-list {
+    color: #6a5a52;
+    line-height: 1.8;
+}
+
+.frame6 .bus-list p {
+    font-size: 0.88rem;
+}
