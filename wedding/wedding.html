@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<!-- Frame 1: Main Photo -->
+<section class="frame frame-1">
+    <div class="photo-container">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Wedding Photo">
+        <div class="main-text">
+            <h1>우리 결혼합니다</h1>
+            <p>2026년 1월 31일</p>
+        </div>
+    </div>
+</section>
+
+<!-- Frame 2: Wedding Message -->
+<section class="frame frame-2">
+    <div class="wedding-icon">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+            <path d="M50,90 C50,90 10,60 10,35 C10,20 20,10 30,10 C40,10 45,15 50,25 C55,15 60,10 70,10 C80,10 90,20 90,35 C90,60 50,90 50,90 Z" fill="#d4a5a4"/>
+        </svg>
+    </div>
+    <div class="message-content">
+        <p class="message-main">평생을 함께할 사람을 만났습니다.</p>
+        <p class="message-sub">저희 두 사람이 사랑과 믿음으로<br>한 가정을 이루게 되었습니다.<br>귀한 걸음 하시어<br>축복해 주시면 감사하겠습니다.</p>
+    </div>
+</section>
+
+<!-- Frame 3: Date & D-Day -->
+<section class="frame frame-3">
+    <h2>Wedding Day</h2>
+    <div class="date-display">
+        <p class="year">2026</p>
+        <p class="date">1월 31일 토요일 오후 3시</p>
+    </div>
+
+    <div class="calendar">
+        <div class="calendar-header">
+            <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+        </div>
+        <div class="calendar-body" id="calendar"></div>
+    </div>
+
+    <div class="d-day" id="dday">
+        <p>결혼식까지 <span id="days"></span>일 남았습니다</p>
+    </div>
+</section>
+
+<!-- Frame 4: Family Info -->
+<section class="frame frame-4">
+    <h2>모시는 글</h2>
+
+    <div class="family-info">
+        <div class="parent-info">
+            <p class="parent-label">신랑측 부모님</p>
+            <p>아버지 <strong>김철수</strong> · 어머니 <strong>이영희</strong></p>
+        </div>
+
+        <div class="couple-info">
+            <div class="groom">
+                <p class="role">신랑</p>
+                <p class="name">김민수</p>
+                <button class="contact-btn" onclick="callPhone('010-1234-5678')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+                    </svg>
+                    연락하기
+                </button>
+            </div>
+
+            <div class="divider">❤️</div>
+
+            <div class="bride">
+                <p class="role">신부</p>
+                <p class="name">박지영</p>
+                <button class="contact-btn" onclick="callPhone('010-8765-4321')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
+                    </svg>
+                    연락하기
+                </button>
+            </div>
+        </div>
+
+        <div class="parent-info">
+            <p class="parent-label">신부측 부모님</p>
+            <p>아버지 <strong>박성호</strong> · 어머니 <strong>최미경</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- Frame 5: Gallery -->
+<section class="frame frame-5">
+    <h2>Gallery</h2>
+    <div class="gallery-grid" id="gallery"></div>
+</section>
+
+<!-- Gallery Modal -->
+<div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-prev" onclick="prevImage()">‹</button>
+    <button class="modal-next" onclick="nextImage()">›</button>
+    <img id="modalImage" src="" alt="">
+    <div class="modal-counter"><span id="currentIndex"></span> / <span id="totalImages"></span></div>
+</div>
+
+<!-- Frame 6: Location -->
+<section class="frame frame-6">
+    <h2>오시는 길</h2>
+    <div class="location-info">
+        <h3>신도림 더링크호텔</h3>
+        <p>서울특별시 구로구 경인로 661</p>
+    </div>
+
+    <div class="map-placeholder">
+        <p>지도 영역</p>
+    </div>
+
+    <div class="map-buttons">
+        <button class="map-btn" onclick="openMap('naver')">
+            <span>네이버 지도</span>
+        </button>
+        <button class="map-btn" onclick="openMap('kakao')">
+            <span>카카오맵</span>
+        </button>
+        <button class="map-btn" onclick="openMap('tmap')">
+            <span>티맵</span>
+        </button>
+    </div>
+</section>
+
+<!-- Frame 7: Account Info -->
+<section class="frame frame-7">
+    <h2>마음 전하실 곳</h2>
+    <p class="account-subtitle">참석이 어려우신 분들을 위해<br>계좌번호를 안내드립니다</p>
+
+    <div class="account-buttons">
+        <button class="account-toggle" onclick="toggleAccount('groom')">
+            신랑측 계좌번호
+        </button>
+        <div class="account-detail" id="groom-account">
+            <div class="account-item">
+                <p><strong>신랑 김민수</strong></p>
+                <p>국민은행 123-456-789012</p>
+                <button class="copy-btn" onclick="copyAccount('123-456-789012')">복사</button>
+            </div>
+            <div class="account-item">
+                <p><strong>아버지 김철수</strong></p>
+                <p>신한은행 987-654-321098</p>
+                <button class="copy-btn" onclick="copyAccount('987-654-321098')">복사</button>
+            </div>
+        </div>
+
+        <button class="account-toggle" onclick="toggleAccount('bride')">
+            신부측 계좌번호
+        </button>
+        <div class="account-detail" id="bride-account">
+            <div class="account-item">
+                <p><strong>신부 박지영</strong></p>
+                <p>우리은행 111-222-333444</p>
+                <button class="copy-btn" onclick="copyAccount('111-222-333444')">복사</button>
+            </div>
+            <div class="account-item">
+                <p><strong>아버지 박성호</strong></p>
+                <p>하나은행 555-666-777888</p>
+                <button class="copy-btn" onclick="copyAccount('555-666-777888')">복사</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="./wedding.js"></script>
+</body>
+</html>
