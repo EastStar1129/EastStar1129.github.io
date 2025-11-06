@@ -5,7 +5,7 @@ body {
     font-family: 'GowunDodum', sans-serif;
     display: flex;
     justify-content: center;
-    background: linear-gradient(135deg, #fdf6e3, #f5ecd7, #f0e4c8);
+    background: #ffffff;
     touch-action: pan-x pan-y;
 }
 
@@ -305,7 +305,7 @@ body {
 /* 4 */
 .frame4 {
     padding: 5rem 0;
-    background: linear-gradient(180deg, #fdfbf9 0%, #f9f5f3 100%);
+    background: #ffffff;
     text-align: center;
 }
 
@@ -417,7 +417,7 @@ body {
 /* 5 */
 .frame5 {
     padding: 2rem 0;
-    background-color: #fdf5f0;
+    background-color: #ffffff;
     text-align: center;
 }
 
