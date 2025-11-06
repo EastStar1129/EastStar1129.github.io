@@ -440,7 +440,7 @@ body {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin: 10px;
 }
@@ -455,7 +455,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .your-class {
+    .gallery-grid img {
         height: 20rem;
     }
 }
