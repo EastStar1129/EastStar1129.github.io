@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgb(234, 195, 194);
+    touch-action: pan-x pan-y;
 }
 
 @media (max-width: 768px) {
