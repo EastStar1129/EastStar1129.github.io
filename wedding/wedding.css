@@ -592,3 +592,117 @@ body {
 .frame6 .bus-list p {
     font-size: 0.88rem;
 }
+
+/** frame 7 **/
+/* Frame7 공통 */
+/* ===== Frame7 (마음 전하실 곳) ===== */
+.frame7 {
+    background: #fff;
+    padding: 32px 0px;
+    text-align: center;
+}
+
+.frame7-wrapper { max-width: 480px; margin: 0 auto; padding: 0px 3rem;}
+
+.title-small { font-size: 12px; color: #9a8f8c; letter-spacing: 1px; }
+.title-main { font-size: 20px; margin: 6px 0 12px; color: #2f2a28; }
+.frame7-desc { color: #555; line-height: 1.6; margin-bottom: 18px; }
+
+/* 드롭다운 컨테이너 */
+.dropdowns { display: grid; gap: 14px; }
+
+/* 버튼 스타일(드롭다운 트리거) */
+.dropdown-container { text-align: left; position: relative; }
+.dropdown-btn {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e3e0df;
+    background: #faf7f6;
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+    color: #2b2b2b;
+}
+
+/* 드롭다운 내부 */
+.dropdown-content {
+    margin-top: 8px;
+    display: none;
+    border-radius: 10px;
+    border: 1px solid #efece9;
+    background: #fffaf9;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(14, 12, 11, 0.04);
+}
+
+/* 각 항목(줄) */
+.gift-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.gift-row:last-child { border-bottom: none; }
+
+/* 왼쪽(이름/계좌) */
+.gift-left { text-align: left; max-width: 68%; }
+.gift-title { font-weight: 600; color: #333; font-size: 15px; }
+.gift-sub { color: #666; font-size: 13px; margin-top: 4px; }
+
+/* 오른쪽(버튼들) */
+.gift-right { display: flex; gap: 8px; align-items: center; }
+
+/* 버튼 공통 */
+.copy-btn, .kakao-btn {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 복사 버튼(심플) */
+.copy-btn {
+    background: #fff;
+    border: 1px solid #e0dede;
+    color: #333;
+}
+
+/* 카카오페이 버튼(포인트) */
+.kakao-btn {
+    background: #ffeee0;
+    color: #b25b3f;
+    border: 1px solid rgba(178,91,63,0.12);
+}
+
+/* hover */
+.copy-btn:hover { background: #f5f5f5; }
+.kakao-btn:hover { background: #ffefe0; }
+
+/* 토스트 (복사됨) */
+.copy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 36px;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(48, 120, 75, 0.95);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 320ms ease;
+    z-index: 2000;
+}
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+

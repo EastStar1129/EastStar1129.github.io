@@ -131,4 +131,59 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", updateCountdown);
 document.addEventListener("DOMContentLoaded", generateCalendar);
 
+// Frame7 - 마음 전하실 곳 콤보박스
+// ===== Frame7: 드롭다운 토글 & 복사 토스트 =====
+document.addEventListener("DOMContentLoaded", () => {
+    // 드롭다운 토글
+    document.querySelectorAll(".dropdown-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const targetId = btn.dataset.target || btn.getAttribute('data-target') || btn.nextElementSibling?.id;
+            const content = document.getElementById(targetId) || btn.nextElementSibling;
+            if (!content) return;
+            const isOpen = content.style.display === "block";
+            // close all siblings first (optional)
+            document.querySelectorAll(".dropdown-content").forEach(c => { if (c !== content) c.style.display = "none"; });
+            content.style.display = isOpen ? "none" : "block";
+            btn.setAttribute("aria-expanded", String(!isOpen));
+            content.setAttribute("aria-hidden", String(isOpen));
+        });
+    });
+
+    // 복사 + 토스트
+    const toast = document.getElementById("copy-toast");
+    function showToast() {
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1500);
+    }
+
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", async (e) => {
+            e.stopPropagation();
+            const acc = btn.getAttribute("data-account") || "";
+            try {
+                await navigator.clipboard.writeText(acc);
+                showToast();
+            } catch (err) {
+                // fallback
+                const ta = document.createElement("textarea");
+                ta.value = acc;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast();
+            }
+        });
+    });
+
+    // 클릭 외부 닫기 (드롭다운)
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown-container')) {
+            document.querySelectorAll('.dropdown-content').forEach(c => c.style.display = 'none');
+            document.querySelectorAll('.dropdown-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        }
+    });
+});
+
+
 
