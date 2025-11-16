@@ -441,16 +441,16 @@ body {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 3px;
     margin: 10px;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 200px; /* 16rem; */
+    height: 180px; /* 16rem; */
     object-fit: cover;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: 0px;
     transition: transform 0.3s;
 }
 
