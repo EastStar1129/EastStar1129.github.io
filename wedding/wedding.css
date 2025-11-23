@@ -38,17 +38,31 @@ body {
     position: relative;
 }
 
-
 .frame1 .title-frame {
     position: absolute;
     z-index: 1;
     width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Blacksword 폰트 로드 */
+@font-face {
+    font-family: 'FranciscoDemo';
+    src: url('./FranciscoDemo.otf') format('opentype');
 }
 
 .ml1 {
     font-weight: 100;
-    font-size: 3.5em;
-    font-family: Cursive ;
+    font-size: 7.0em;
+    font-family: Cursive;
+    text-align: center;
+}
+
+.ml1 .letters {
+    font-family: 'FranciscoDemo', Cursive;
+    color: pink;
 }
 
 .ml1 .letter {
@@ -100,14 +114,12 @@ body {
     color: #fafafa;
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
-    /* 자간 + 행간 조절 */
     letter-spacing: 0.4px;
     line-height: 1.4;
 }
 
 .overlay-text h4 {
     margin: 0.3rem 0;
-    /* 글꼴 굵기 조정 */
     font-weight: 500;
     font-size: 1.15rem;
     opacity: 1;
@@ -124,8 +136,8 @@ body {
     }
 
     .frame {
-        border-top-left-radius: 20px ;
-        border-top-right-radius: 20px ;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         overflow: hidden;
     }
 }
