@@ -1,3 +1,9 @@
+/* Blacksword 폰트 로드 */
+@font-face {
+    font-family: 'FranciscoDemo';
+    src: url('./FranciscoDemo.otf') format('opentype');
+}
+
 /* 전체 레이아웃 */
 body {
     margin: 0;
@@ -24,6 +30,42 @@ body {
     background-color: white;
 }
 
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-text {
+    font-size: 5em;
+    color: #fff;
+    font-family: 'FranciscoDemo', Cursive, serif;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    30% { opacity: 1; transform: translateY(0); }
+    70% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
 /* 프레임 공통 */
 .frame {
     width: 100%;
@@ -45,13 +87,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;  /* !important 추가 */
 }
 
-/* Blacksword 폰트 로드 */
-@font-face {
-    font-family: 'FranciscoDemo';
-    src: url('./FranciscoDemo.otf') format('opentype');
+.frame1 .title-frame.show {
+    animation: fadeInTitle 1s ease forwards;
 }
+
+@keyframes fadeInTitle {
+    to { opacity: 1; }
+}
+
 
 .ml1 {
     font-weight: 100;

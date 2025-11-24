@@ -1,25 +1,36 @@
-// Wrap every letter in a span
-var textWrapper = document.querySelector('.ml1 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+// 기존 코드 전체를 삭제하고 아래로 교체
+setTimeout(() => {
+    // 오버레이 페이드 아웃
+    document.getElementById('introOverlay').classList.add('fade-out');
 
-anime.timeline({loop: false})
-    .add({
-        targets: '.ml1 .letter',
-        scale: [0.3,1],
-        opacity: [0,1],
-        translateZ: 0,
-        easing: "easeOutExpo",
-        duration: 600,
-        delay: (el, i) => 70 * (i+1)
-    }).add({
-    targets: '.ml1 .line',
-    scaleX: [0,1],
-    opacity: [0.5,1],
-    easing: "easeOutExpo",
-    duration: 700,
-    offset: '-=875',
-    delay: (el, i, l) => 80 * (l - i)
-});
+    // 타이틀 프레임 표시
+    document.querySelector('.title-frame').classList.add('show');
+
+    // 메인 텍스트 애니메이션 시작
+    setTimeout(() => {
+        var textWrapper = document.querySelector('.ml1 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: false})
+            .add({
+                targets: '.ml1 .letter',
+                scale: [0.3,1],
+                opacity: [0,1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 600,
+                delay: (el, i) => 70 * (i+1)
+            }).add({
+            targets: '.ml1 .line',
+            scaleX: [0,1],
+            opacity: [0.5,1],
+            easing: "easeOutExpo",
+            duration: 700,
+            offset: '-=875',
+            delay: (el, i, l) => 80 * (l - i)
+        });
+    }, 500);
+}, 3000);
 
 //section 3
 const weddingDate = new Date(2026, 0, 31); // 0월 = 1월
