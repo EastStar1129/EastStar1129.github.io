@@ -455,8 +455,8 @@ body {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
     margin: 10px;
 }
 
@@ -465,13 +465,13 @@ body {
     height: 180px; /* 16rem; */
     object-fit: cover;
     cursor: pointer;
-    border-radius: 0px;
+    border-radius: 15px;
     transition: transform 0.3s;
 }
 
 @media (min-width: 768px) {
     .gallery-grid img {
-        height: 220px; /* 20rem;*/
+        height: 240px; /* 20rem;*/
     }
 }
 
