@@ -128,7 +128,7 @@ body {
     display: inline-block;
     padding-top: 0.0em;
     padding-right: 0.05em;
-    padding-bottom: 0.15em;
+    padding-bottom: 48rem;
 }
 
 .ml1 .line {
@@ -268,8 +268,15 @@ body {
 
 .frame2 .image-wrapper {
     width: 100%;
-    height: 500px;
+    height: 100%;
     position: relative;
+}
+
+.frame2 .image-wrapper .main-photo{
+    width: 100%;
+    height: 320px;
+    clip-path: inset(12px 0 0 0);
+    object-fit: contain;
 }
 
 /* section 3 */
