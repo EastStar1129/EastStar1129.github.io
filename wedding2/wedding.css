@@ -359,9 +359,13 @@ body {
     justify-content: space-between;
     margin-top: 20px;
 }
+
 .countdown-title {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 900;
+}
+.countdown span {
+    font-size: 0.9rem;
 }
 
 .countdown div {
@@ -428,7 +432,6 @@ body {
 }
 
 .family-couple-section {
-    margin-bottom: 40px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -462,7 +465,7 @@ body {
 }
 
 .family-main-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding-right: 1.5em;
     color: #1a1a1a;
     font-weight: 700;
@@ -489,10 +492,6 @@ body {
     .family-parents {
         font-size: 14px;
     }
-
-    .family-main-name {
-        font-size: 28px;
-    }
 }
 /* 5 */
 .frame5 {
@@ -508,12 +507,12 @@ body {
 }
 
 .gallery-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
 .gallery-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #888;
     margin-bottom: 1rem;
 }
