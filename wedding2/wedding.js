@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
 
-    const totalImages = 30;
+    const totalImages = 28;
     const images = [];
 
     // 갤러리 이미지 자동 생성
