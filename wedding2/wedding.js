@@ -9,7 +9,6 @@ setTimeout(() => {
     // 메인 텍스트 애니메이션 시작
     setTimeout(() => {
         var textWrapper = document.querySelector('.ml1 .letters');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
         anime.timeline({loop: false})
             .add({
