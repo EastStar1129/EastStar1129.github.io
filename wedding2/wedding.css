@@ -504,6 +504,9 @@ body {
     margin: 0.7rem;
 }
 
+#img6 {
+    object-position: calc(50% - 30px) center;
+}
 #img12 {
     transform: scale(1.2)
 }
