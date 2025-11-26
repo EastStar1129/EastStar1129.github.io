@@ -93,9 +93,7 @@ body {
     position: absolute;
     z-index: 1;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top:-1rem;
     opacity: 0;  /* !important 추가 */
 }
 
@@ -110,14 +108,13 @@ body {
 
 .ml1 {
     font-weight: 100;
-    font-size: 5.0em;
+    font-size: 3.0em;
     font-family: Cursive;
     text-align: center;
 }
 
 .ml1 .letters {
-    font-family: 'FranciscoDemo', Cursive;
-    color: pink;
+    color: white;
 }
 
 .ml1 .letter {
@@ -601,7 +598,6 @@ body {
     width: 100%;
     max-width: 500px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .frame6 .transport-info {
