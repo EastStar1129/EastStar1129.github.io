@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = [];
 
     // 갤러리 이미지 자동 생성
-    for(let i=1; i<=0; i++){
+    for(let i=1; i<=24; i++){
         const img = document.getElementById(`img${i}`);
         images.push(img.src);
 

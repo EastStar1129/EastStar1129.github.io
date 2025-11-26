@@ -620,6 +620,7 @@ body {
 }
 
 .frame6 .transport-info {
+    width:100%;
     text-align: left;
     max-width: 500px;
     margin: 0 auto;
