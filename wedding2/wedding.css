@@ -3,9 +3,10 @@
     font-family: 'FranciscoDemo';
     src: url('./FranciscoDemo.otf') format('opentype');
 }
+
 @font-face {
     font-family: 'GowoonDodum';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff'),
+    src: url('./GowunDodum-Regular.woff') format('woff'),
     url('./GowunDodum-Regular.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
