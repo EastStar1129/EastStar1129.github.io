@@ -24,6 +24,12 @@ body {
     letter-spacing: -1.5px;
 }
 
+img {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 @media (max-width: 768px) {
     body {
         background-color: white;
