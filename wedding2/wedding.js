@@ -81,11 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = [];
 
     // 갤러리 이미지 자동 생성
-    for(let i=1; i<=totalImages; i++){
-        const img = document.createElement('img');
-        img.src = `img/img${i}.jpg`; // 실제 이미지 경로
-        img.alt = `Gallery Image ${i}`;
-        galleryGrid.appendChild(img);
+    for(let i=1; i<=0; i++){
+        const img = document.getElementById(`img${i}`);
         images.push(img.src);
 
         img.addEventListener('click', () => {

@@ -5,10 +5,10 @@
 }
 
 @font-face {
-    font-family: 'GowoonDodum';
-    src: url('./GowunDodum-Regular.woff') format('woff'),
-    url('./GowunDodum-Regular.ttf') format('truetype');
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.salondeletter.com/cdn/font/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -504,12 +504,22 @@ body {
     margin: 0.7rem;
 }
 
+#img12 {
+    transform: scale(1.2)
+}
+
+.gallery-img {
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
 .gallery-grid img {
     width: 100%;
     height: 15rem; /* 16rem; */
     object-fit: cover;
     cursor: pointer;
-    border-radius: 15px;
     transition: transform 0.3s;
 }
 
