@@ -279,17 +279,22 @@ body {
 }
 
 .calendar-title {
-    font-size: 1.125rem;
+    font-size: 1.0rem;
     font-weight: 500;
 }
 
 .calendar-title-sub {
     font-size: 1rem;
+    font-weight: 500;
+}
+
+.calendar-title-sub2 {
+    font-size: 1rem;
     margin-bottom: 3rem;
     font-weight: 500;
 }
 
-.calendar-title-sub::after {
+.calendar-title-sub2::after {
     content: '';
     display: block;
     width: 60px;
@@ -409,8 +414,17 @@ body {
     align-items: center;
 }
 
+
+@media (min-width: 769px) {
+    .family-invitation-card {
+        padding: 0 9rem !important;
+        padding-top:1rem  !important;
+    }
+}
+
 .family-invitation-card {
-    padding: 1rem 6rem;
+    padding: 0 8rem;
+    padding-top:1rem;
     width: 100%;
 }
 
@@ -430,7 +444,7 @@ body {
 }
 
 .family-parents {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     color: #555;
     line-height: 1.8;
     text-align: left;
@@ -448,7 +462,7 @@ body {
 }
 
 .family-main-name {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     color: #1a1a1a;
     font-weight: 700;
 }
@@ -474,14 +488,15 @@ body {
 }
 
 .gallery-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.0rem;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
 }
 
 .gallery-subtitle {
     font-size: 0.8rem;
     color: #888;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .gallery-grid {
@@ -758,7 +773,6 @@ body {
 
 .frame8 .image-wrapper .main-photo{
     width: 100%;
-    height: 320px;
     clip-path: inset(12px 0 0 0);
     object-fit: contain;
 }
