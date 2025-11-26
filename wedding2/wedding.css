@@ -268,7 +268,7 @@ body {
 
 /* section 3 */
 .frame3 {
-    padding: 2rem 0;
+    padding-bottom: 2rem;
     text-align: center;
 }
 
@@ -296,6 +296,7 @@ body {
     height: 1px;
     background: linear-gradient(90deg, transparent, #c4a696, transparent);
     margin: 1rem auto 0;
+    margin-top: 5rem;
 }
 
 .calendar {
@@ -409,7 +410,7 @@ body {
 }
 
 .family-invitation-card {
-    padding: 1rem 3rem;
+    padding: 1rem 6rem;
     width: 100%;
 }
 
@@ -417,6 +418,7 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-bottom: 0.3rem;
 }
 
 .family-couple-section:last-child {
@@ -428,10 +430,10 @@ body {
 }
 
 .family-parents {
-    font-size: 15px;
+    font-size: 0.95rem;
     color: #555;
-    margin-bottom: 8px;
     line-height: 1.8;
+    text-align: left;
 }
 
 .family-name-emphasis {
@@ -446,8 +448,7 @@ body {
 }
 
 .family-main-name {
-    font-size: 1.2rem;
-    padding-right: 1.5em;
+    font-size: 1.1rem;
     color: #1a1a1a;
     font-weight: 700;
 }
@@ -459,20 +460,6 @@ body {
     margin: 40px auto;
 }
 
-@media (max-width: 480px) {
-    .family-invitation-card {
-        padding: 40px 25px;
-    }
-
-    .family-couple-section {
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .family-parents {
-        font-size: 14px;
-    }
-}
 /* 5 */
 .frame5 {
     padding: 2rem 0;
@@ -500,23 +487,17 @@ body {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    margin: 10px;
+    gap: 0.7rem;
+    margin: 0.7rem;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 180px; /* 16rem; */
+    height: 18rem; /* 16rem; */
     object-fit: cover;
     cursor: pointer;
     border-radius: 15px;
     transition: transform 0.3s;
-}
-
-@media (min-width: 768px) {
-    .gallery-grid img {
-        height: 240px; /* 20rem;*/
-    }
 }
 
 .gallery-grid img:hover {
