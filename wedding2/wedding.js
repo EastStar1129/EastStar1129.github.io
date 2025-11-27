@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
 
+    // ⭐ 모달을 body 최상위로 이동
+    if (modal && modal.parentElement) {
+        document.body.appendChild(modal);
+    }
+
     const totalImages = 26;
     const images = [];
     let loadedImages = 0;
@@ -180,7 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
         showPrev();
     });
 
-    modal.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
 
     document.addEventListener('keydown', (e) => {
         if(modal.style.display === 'flex'){
