@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
 
-    const totalImages = 24;
+    const totalImages = 26;
     const images = [];
     let loadedImages = 0;
     const imagesPerLoad = 4;
