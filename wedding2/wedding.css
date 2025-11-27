@@ -46,6 +46,7 @@ img {
 }
 
 .intro-overlay {
+    font-family: 'FranciscoDemo', Cursive, serif;
     position: fixed;
     top: 0;
     left: 0;
