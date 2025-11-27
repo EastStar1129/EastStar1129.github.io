@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalImages = 26;
     const images = [];
     let loadedImages = 0;
-    const imagesPerLoad = 4;
+    const initialLoad = 6; // 초기 로드 이미지 개수
 
     // 모든 이미지 경로 미리 저장
     for(let i=1; i<=totalImages; i++){
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 이미지 로드 함수
     function loadMoreImages() {
         const start = loadedImages + 1;
-        const end = Math.min(loadedImages + imagesPerLoad, totalImages);
+        const end = totalImages; // 더보기 클릭 시 전체 로드
 
         for(let i = start; i <= end; i++){
             const imgWrapper = document.createElement('div');
@@ -119,12 +119,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         loadedImages = end;
 
-        // 더보기 버튼 표시/숨김
-        if(loadedImages >= totalImages) {
-            loadMoreBtn.style.display = 'none';
-        } else {
-            loadMoreBtn.style.display = 'block';
+        // 더보기 버튼 숨김
+        loadMoreBtn.style.display = 'none';
+    }
+
+    // 초기 이미지 로드 함수
+    function loadInitialImages() {
+        for(let i = 1; i <= initialLoad; i++){
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'gallery-img';
+
+            const img = document.createElement('img');
+            img.id = `img${i}`;
+            img.src = `img/img${i}.jpg`;
+            img.alt = 'Gallery Image';
+
+            // 특수 스타일 적용
+            if(i === 6) img.style.objectPosition = 'calc(50% - 30px) center';
+
+            img.addEventListener('click', () => {
+                currentIndex = i-1;
+                modalImg.src = images[currentIndex];
+                modal.style.display = 'flex';
+            });
+
+            imgWrapper.appendChild(img);
+            galleryGrid.appendChild(imgWrapper);
         }
+
+        loadedImages = initialLoad;
     }
 
     // 더보기 버튼 생성
@@ -134,8 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMoreBtn.addEventListener('click', loadMoreImages);
     galleryGrid.parentElement.appendChild(loadMoreBtn);
 
-    // 초기 이미지 로드
-    loadMoreImages();
+    // 초기 6장 로드
+    loadInitialImages();
 
     function showNext() {
         currentIndex = (currentIndex + 1) % images.length;
