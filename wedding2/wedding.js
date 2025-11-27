@@ -181,6 +181,29 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", updateCountdown);
 document.addEventListener("DOMContentLoaded", generateCalendar);
 
+// 스크롤 애니메이션 - Intersection Observer
+document.addEventListener("DOMContentLoaded", () => {
+    const frames = document.querySelectorAll('.frame');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // 10%가 보이면 트리거
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    frames.forEach(frame => {
+        observer.observe(frame);
+    });
+});
+
 // Frame7 - 마음 전하실 곳 콤보박스
 // ===== Frame7: 드롭다운 토글 & 복사 토스트 =====
 document.addEventListener("DOMContentLoaded", () => {
