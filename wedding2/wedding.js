@@ -79,20 +79,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const totalImages = 24;
     const images = [];
+    let loadedImages = 0;
+    const imagesPerLoad = 4;
 
-    // 갤러리 이미지 자동 생성
-    for(let i=1; i<=24; i++){
-        const img = document.getElementById(`img${i}`);
-        images.push(img.src);
-
-        img.addEventListener('click', () => {
-            currentIndex = i-1;
-            modalImg.src = images[currentIndex];
-            modal.style.display = 'flex';
-        });
+    // 모든 이미지 경로 미리 저장
+    for(let i=1; i<=totalImages; i++){
+        images.push(`img/img${i}.jpg`);
     }
 
     let currentIndex = 0;
+
+    // 이미지 로드 함수
+    function loadMoreImages() {
+        const start = loadedImages + 1;
+        const end = Math.min(loadedImages + imagesPerLoad, totalImages);
+
+        for(let i = start; i <= end; i++){
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'gallery-img';
+
+            const img = document.createElement('img');
+            img.id = `img${i}`;
+            img.src = `img/img${i}.jpg`;
+            img.alt = 'Gallery Image';
+
+            // 특수 스타일 적용
+            if(i === 6) img.style.objectPosition = 'calc(50% - 30px) center';
+            if(i === 12) img.style.transform = 'scale(1.2)';
+
+            img.addEventListener('click', () => {
+                currentIndex = i-1;
+                modalImg.src = images[currentIndex];
+                modal.style.display = 'flex';
+            });
+
+            imgWrapper.appendChild(img);
+            galleryGrid.appendChild(imgWrapper);
+        }
+
+        loadedImages = end;
+
+        // 더보기 버튼 표시/숨김
+        if(loadedImages >= totalImages) {
+            loadMoreBtn.style.display = 'none';
+        } else {
+            loadMoreBtn.style.display = 'block';
+        }
+    }
+
+    // 더보기 버튼 생성
+    const loadMoreBtn = document.createElement('button');
+    loadMoreBtn.textContent = '더보기 +';
+    loadMoreBtn.className = 'load-more-btn';
+    loadMoreBtn.addEventListener('click', loadMoreImages);
+    galleryGrid.parentElement.appendChild(loadMoreBtn);
+
+    // 초기 이미지 로드
+    loadMoreImages();
 
     function showNext() {
         currentIndex = (currentIndex + 1) % images.length;

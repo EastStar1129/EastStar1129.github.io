@@ -543,6 +543,27 @@ img {
     transform: scale(1.05);
 }
 
+.load-more-btn {
+    margin: 2rem auto;
+    padding: 0.8rem 2rem;
+    background: #516349;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    font-family: 'GowunDodum-Regular', serif;
+}
+
+.load-more-btn:hover {
+    background: #3d4a37;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(81, 99, 73, 0.3);
+}
+
 .modal {
     display: none;
     position: fixed;
