@@ -716,7 +716,7 @@ img {
     text-align: center;
 }
 
-.frame7-wrapper { max-width: 480px; margin: 0 auto; padding: 0 3rem;}
+.frame7-wrapper { max-width: 480px; margin: 0 auto; padding: 0 1rem;}
 
 .title-small { font-size: 12px; color: #9a8f8c;  }
 .title-main { font-size: 20px; margin: 1rem 0 2.5rem; color: #2f2a28; }
