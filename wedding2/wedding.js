@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 특수 스타일 적용
             if(i === 6) img.style.objectPosition = 'calc(50% - 30px) center';
-            if(i === 12) img.style.transform = 'scale(1.2)';
+            if(i === 10) img.style.transform = 'scale(1.1)';
 
             img.addEventListener('click', () => {
                 currentIndex = i-1;

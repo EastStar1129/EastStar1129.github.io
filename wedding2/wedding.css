@@ -443,24 +443,14 @@ img {
     align-items: center;
 }
 
-
-@media (min-width: 769px) {
-    .family-invitation-card {
-        padding: 0 8rem !important;
-        padding-top:1rem  !important;
-    }
-}
-
 .family-invitation-card {
-    padding: 0 7rem;
-    padding-top:1rem;
-    width: 100%;
+    padding: 2rem 0 0 0;
 }
 
 .family-couple-section {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 0.3rem;
     margin-bottom: 0.3rem;
 }
 
@@ -469,14 +459,21 @@ img {
 }
 
 .family-info {
-    flex: 1;
+    /*flex: 1;*/
+}
+
+.family-gender {
+    display: block;
+    width: 2rem;
+    font-size: 0.9rem;
 }
 
 .family-parents {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     color: #555;
     line-height: 1.8;
     text-align: left;
+    width:6rem;
 }
 
 .family-name-emphasis {
@@ -491,9 +488,10 @@ img {
 }
 
 .family-main-name {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #1a1a1a;
     font-weight: 700;
+    width: 2rem;
 }
 
 .family-divider {
@@ -534,13 +532,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.7rem;
     margin: 0.7rem;
-}
-
-#img6 {
-    object-position: calc(50% - 30px) center;
-}
-#img12 {
-    transform: scale(1.2)
 }
 
 .gallery-img {
