@@ -766,7 +766,7 @@ img {
 .gift-sub { color: #666; font-size: 13px; margin-top: 4px; }
 
 /* 오른쪽(버튼들) */
-.gift-right { display: flex; gap: 8px; align-items: center; }
+.gift-right { display: flex; align-items: center; }
 
 /* 버튼 공통 */
 .copy-btn, .kakao-btn {
@@ -786,6 +786,7 @@ img {
     background: #fff;
     border: 1px solid #e0dede;
     color: #333;
+    min-width: 2.8rem;
 }
 
 /* 카카오페이 버튼(포인트) */
