@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 더보기 버튼 생성
     const loadMoreBtn = document.createElement('button');
-    loadMoreBtn.textContent = '더보기 +';
+    loadMoreBtn.textContent = '사진 더보기';
     loadMoreBtn.className = 'load-more-btn';
     loadMoreBtn.addEventListener('click', loadMoreImages);
     galleryGrid.parentElement.appendChild(loadMoreBtn);
