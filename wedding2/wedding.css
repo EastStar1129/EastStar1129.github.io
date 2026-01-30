@@ -295,6 +295,10 @@ img {
     text-align: center;
 }
 
+.frame3 .countdown {
+    display: none;
+}
+
 .calendar-main-title {
     font-size: 1.2rem;
     font-weight: 500;
