@@ -66,7 +66,7 @@ function updateCountdown() {
     const wedding = new Date(2026, 0, 31); // 1월 31일
     const diffTime = wedding - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById("daysLeft").textContent = diffDays > 0 ? diffDays : 0;
+    // document.getElementById("daysLeft").textContent = diffDays > 0 ? diffDays : 0;
 }
 
 /*** 5 ***/
